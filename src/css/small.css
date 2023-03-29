@@ -1,0 +1,39 @@
+/* General Styles and declaring variables */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Luckiest Guy', cursive;
+}
+
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: start;
+}
+
+header img {
+    max-width: 20%;
+}
+
+header h1 {
+    align-self: center;
+    font-size: 130%;
+}
+
+
+/*  banner image styling */
+.home section {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-img img {
+    max-width: 100vw;
+}
+
+
+
+
+
+
+
+

@@ -4,11 +4,38 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "vite": "^4.2.0"
-  }
+  },
+  "description": "��#\u0000 \u0000E\u0000n\u0000g\u0000l\u0000i\u0000s\u0000h\u0000N\u0000u\u0000m\u0000b\u0000e\u0000r\u0000s\u0000\r\u0000 \u0000",
+  "main": "main.js",
+  "dependencies": {
+    "esbuild": "^0.17.14",
+    "function-bind": "^1.1.1",
+    "has": "^1.0.3",
+    "is-core-module": "^2.11.0",
+    "nanoid": "^3.3.6",
+    "normalize.css": "^8.0.1",
+    "path-parse": "^1.0.7",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.21",
+    "resolve": "^1.22.1",
+    "rollup": "^3.20.2",
+    "source-map-js": "^1.0.2",
+    "supports-preserve-symlinks-flag": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckayythomas/EnglishNumbers.git"
+  },
+  "author": "McKay Thomas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mckayythomas/EnglishNumbers/issues"
+  },
+  "homepage": "https://github.com/mckayythomas/EnglishNumbers#readme"
 }
