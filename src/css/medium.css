@@ -1,0 +1,105 @@
+/* General Styles and declaring variables */
+:root {
+    --border-color: rgb(228, 191, 29);
+    --header-font: 'Luckiest Guy', cursive;
+    --body-font: 'Ubuntu', sans-serif;
+    --math-symbol-font: 'Nunito', sans-serif;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
+}
+
+body {
+    font-family: var(--body-font);
+    font-weight: 600;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: start;
+    margin: 0 0 5px;
+    border-bottom: solid var(--border-color);
+}
+
+header img {
+    max-width: 10%;
+}
+
+header h1 {
+    align-self: center;
+    font-size: 175%;
+    margin: 0 0 0 -45px;
+    text-align: center;
+    flex: 1 1;
+}
+
+
+/*  banner image styling */
+.home section {
+    display: flex;
+    flex-direction: column;
+}
+
+.banner-img img {
+    max-width: 80%;
+}
+
+.banner-img {
+    text-align: center;
+}
+
+/* mission statement styling */
+.mission-statement {
+    margin-left: 5px;
+}
+
+.mission-statement p {
+    margin: 10px 15vw 10px 15vw;
+}
+
+/* Problem Selecting styling */
+.select-practice {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 10px 10px 10px;
+}
+
+.display-practice {
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+.display-practice div h1 {
+    margin: 0px;
+}
+
+.select-practice div {
+    font-size: 125%;
+    border: solid;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px rgb(101, 101, 101);
+    width: 100%;
+    margin: 10px;
+    vertical-align: middle;
+    padding: 0 0 5px;
+    font-family: var(--math-symbol-font);
+}
+
+.card-symbol {
+    font-size: 800%;
+}
+
+/* Footer styling */
+footer {
+    border-top: solid var(--border-color);
+}
+
+footer p {
+    margin: 20px 0 20px 5px;
+    vertical-align: bottom;
+}
+
+
