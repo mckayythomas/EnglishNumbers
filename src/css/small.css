@@ -7,10 +7,23 @@
 
 }
 
+:root {
+    --border-color: rgb(228, 191, 29);
+    --header-font: 'Luckiest Guy', cursive;
+    --body-font: 'Ubuntu', sans-serif;
+    --math-symbol-font: 'Nunito', sans-serif;
+
+}
+
 h1, h2, h3, h4, h5, h6 {
+    font-family: var(--header-font);
     font-family: var(--header-font);
 }
 
+body {
+    font-family: var(--body-font);
+    font-weight: 600;
+}
 body {
     font-family: var(--body-font);
     font-weight: 600;
@@ -22,15 +35,21 @@ header {
     justify-content: start;
     margin: 0 0 30px;
     border-bottom: solid var(--border-color);
+    margin: 0 0 30px;
+    border-bottom: solid var(--border-color);
 }
 
 header img {
+    max-width: 15%;
     max-width: 15%;
 }
 
 header h1 {
     align-self: center;
     font-size: 130%;
+    margin: 0 0 0 -45px;
+    text-align: center;
+    flex: 1 1;
     margin: 0 0 0 -45px;
     text-align: center;
     flex: 1 1;
