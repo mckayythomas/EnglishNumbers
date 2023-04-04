@@ -9,14 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@800&family=Ubuntu&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen and (min-width: 1200.01px)" href="./css/large.css" />
-  <link rel="stylesheet" type="text/css" media="screen and (min-width: 1200.01px)" href="./css/large.css" />
-  <link rel="stylesheet" type="text/css" media="screen and (min-width: 480.01px) and (max-width: 1200px)"
-    href="./css/medium.css" />
+  <link rel="stylesheet" type="text/css" media="screen and (min-width: 480.01px) and (max-width: 1200px)" href="./css/medium.css" />
   <link rel="stylesheet" type="text/css" media="screen and (max-width: 480px)" href="./css/small.css" />
   <link rel="stylesheet" type="text/css" href="./css/normalize.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Numbers in English!</title>
   <script src="js/main.js" type="module"></script>
+  <script defer src="js/home.js" type="module"></script>
 </head>
 
 <body>
@@ -36,22 +35,23 @@
         language is not a barrier to mastering math!
       </p>
     </section>
+    
     <section class="display-practice">
       <div>
         <h1>Practice</h1>
         <span>Click a Sign to get Started!</span>
       </div>
-      <div class="select-practice">
-        <div>
+      <div class="select-practice" >
+        <div class="practice-card" id="Addition">
           <span class="card-symbol">&#43;</span>
         </div>
-        <div>
+        <div class="practice-card" id="Subtraction">
           <span class="card-symbol">&#8722;</span>
         </div>
-        <div>
+        <div class="practice-card" id="Multiplecation">
           <span class="card-symbol">&#215;</span>
         </div>
-        <div>
+        <div class="practice-card" id="Division">
           <span class="card-symbol">&#247;</span>
         </div>
       </div>

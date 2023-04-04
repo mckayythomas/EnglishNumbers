@@ -54,7 +54,7 @@ export function qs(selector, parent = document) {
   export function renderWithTemplate(
     template,
     parentElement,
-    position = "afterbegin",
+    position,
     data,
     callback
   ) {
@@ -71,12 +71,13 @@ export function qs(selector, parent = document) {
   }
   
   export async function loadHeaderFooter(header, footer) {
+    const position = "afterBegin";
     const headerTemplate = await loadTemplate("../partials/header.html");
     // console.log(headerTemplate);
-    renderWithTemplate(headerTemplate, header);
+    renderWithTemplate(headerTemplate, header, position);
   
     const footerTemplate = await loadTemplate("../partials/footer.html");
-    renderWithTemplate(footerTemplate, footer);
+    renderWithTemplate(footerTemplate, footer, position);
   }
   
   export function sortList(list, ascending = true, value) {

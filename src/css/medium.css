@@ -99,6 +99,20 @@ header h1 {
     grid-row: 2/3;
 }
 
+/* Difficulty Options */
+.practice-options {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 60vw;
+    height: 80vh;
+    border-radius: 25px;
+    border: solid var(--border-color);
+    box-shadow: 0px 20px 100px rgb(101, 101, 101);
+}
+
 /* Footer styling */
 footer {
     border-top: solid var(--border-color);
