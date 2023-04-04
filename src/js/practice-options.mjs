@@ -63,7 +63,7 @@ export class PracticeInfo {
       const position = "beforeBegin";
       renderWithTemplate(formTemplate, formPlacement, position);
       this.addCloseListener();
-      this.setUserResponse();
+      this.setUserResponse(mathType);
 
     }   
 
@@ -90,12 +90,13 @@ export class PracticeInfo {
     }
 
     // Set user difficulty response to local storage.
-    setUserResponse() {
+    setUserResponse(mathType) {
       const form = document.querySelector("form");
       form.addEventListener("submit", (e) => {
           e.preventDefault();
           // Set user data to local storage
           const optionsJSON = formDataToJSON(document.querySelector("form"));
+          optionsJSON["mathType"] = mathType;
           setLocalStorage("user-options", optionsJSON);
           // redirect 
           window.location.href="./practice/practice.html"
