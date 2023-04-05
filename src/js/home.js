@@ -1,7 +1,8 @@
-import { PracticeInfo } from "./practice-options.mjs";
+import { PracticeInfo } from "./PracticeOptions.mjs";
 
 const practiceInfo = new PracticeInfo();
 
 practiceInfo.addCardListeners();      
+
 
 

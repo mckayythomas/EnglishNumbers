@@ -1,0 +1,46 @@
+[
+    {
+        "ProblemOne": 
+        {
+            "NumOne": 
+            {
+                "text": "1111",
+                "translated": "One thousand one hundred eleven",
+                "translation": "numbers"
+            },
+            "NumTwo":
+            {
+                "text": "1111",
+                "translated": "One thousand one hundred eleven",
+                "translation": "numbers"
+            },
+            "Answer":
+            {
+                "text":"2222",
+                "translated": "Two thousand two hundred twenty-two",
+                "translation": "numbers"
+            }
+        },
+        "ProblemTwo":
+        {
+            "NumOne": 
+            {
+                "text": "1111",
+                "translated": "One thousand one hundred eleven",
+                "translation": "numbers"
+            },
+            "NumTwo":
+            {
+                "text": "1111",
+                "translated": "One thousand one hundred eleven",
+                "translation": "numbers"
+            },
+            "Answer":
+            {
+                "text":"2222",
+                "translated": "Two thousand two hundred twenty-two",
+                "translation": "numbers"
+            } 
+        }
+    }
+]
