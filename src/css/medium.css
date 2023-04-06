@@ -116,16 +116,16 @@ header h1 {
 /* Flash card style */
 .card-container {
     position: absolute;
-    width: 75vw;
+    width: 70vw;
     height: 50vh;
     background: none;
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .flash-card {
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -181,6 +181,32 @@ header h1 {
 
 .problem input {
     height: 30px;
+}
+
+@keyframes incorrect {
+    0% {
+        background: red;
+    }
+    100% {
+        background: none;
+    }
+}
+
+.incorrect {
+    animation: incorrect 3s;
+}
+
+@keyframes correct {
+    0% {
+        background-color: green;
+    }
+    100% {
+        background-color: none;
+    }
+}
+
+.correct {
+    animation: correct 3s;
 }
 
 /* Footer styling */
