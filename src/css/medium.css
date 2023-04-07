@@ -31,7 +31,7 @@ header img {
 header h1 {
     align-self: center;
     font-size: 175%;
-    margin: 0 0 0 -45px;
+    margin: 0 0 0 -20vh;
     text-align: center;
     flex: 1 1;
 }
@@ -94,8 +94,26 @@ header h1 {
 
 .select-practice div:hover {
     cursor: pointer;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: 300% 300%;
+    background-image: linear-gradient(-45deg, rgba(0,212,255,1) 0%, rgba(255,255,255,1) 25%, rgba(0,212,255,1) 51%, rgba(255,255,255,1) 100%);
+    animation: AnimateBG 10s ease infinite;
 }
+
+  
+@keyframes AnimateBG {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 .card-symbol {
     font-size: 15vw;
@@ -171,7 +189,7 @@ input[type="radio"]:checked + label {
 .card-container {
     position: absolute;
     width: 70vw;
-    height: 50vh;
+    height: 52vh;
     background: none;
     top: 60%;
     left: 50%;
@@ -229,7 +247,6 @@ input[type="radio"]:checked + label {
 .problem {
     display: flex;
     flex-direction: column;
-    height: 40vh;
     justify-content: space-evenly;
 }
 
@@ -304,7 +321,7 @@ input[type="radio"]:checked + label {
 /* score */
 .score {
     text-align: center;
-    margin: 8vh 0 0 0;
+    margin: 5vh 0 0 0;
 }
 
 /* Footer styling */

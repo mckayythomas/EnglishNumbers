@@ -212,7 +212,7 @@ export class FlashCard {
             correction = false;
         }
         this.addCorrectionAnimation(correction);
-        userAnswerPlacement.innerText;
+        userAnswerPlacement.innerText = "Your Answer: " + userAnswer;
     }
 
     addCorrectionAnimation(correct){
