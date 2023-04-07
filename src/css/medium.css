@@ -302,11 +302,11 @@ input[type="radio"]:checked + label {
 /* Finished options */
 .finished-options {
     position: fixed;
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70vw;
-    height: 40vh;
+    width: 71vw;
+    height: 53vh;
     display: flex;
     justify-content: center;
     text-align: center;
