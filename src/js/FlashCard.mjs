@@ -1,4 +1,6 @@
-import { getLocalStorage, renderWithTemplate } from "./utils.mjs";
+import { FlashCardSet } from "./FlashCardSet.mjs";
+import { Score } from "./practice-score.js";
+import { addLoader, getLocalStorage, renderWithTemplate } from "./utils.mjs";
 
 
 export class FlashCard {
@@ -6,6 +8,8 @@ export class FlashCard {
         this.flashCardSet = getLocalStorage("card-set");
         this.answer = "";
         this.cardNum = 1;
+        this.score = 0;
+        this.scoreUpdate = new Score;
     }   
 
     // render individual cards 
@@ -63,6 +67,9 @@ export class FlashCard {
 
     // rewrite front of card for when the call to flip it changes.
     nextProblem() {
+        if (this.cardNum == 10){
+            return
+        }
         this.cardNum += 1;
 
         const cardInfo = this.getCard(this.cardNum);
@@ -79,7 +86,7 @@ export class FlashCard {
         <div class="card-side front problem">
             <h2><span>Problem ${cardNumName}</span></h2>
             <span id="problem">${numOne} ${operator} ${numTwo} = </span>
-            <input id="user-answer" type="text" name="user-answer" required>
+            <input id="user-answer-input" type="text" name="user-answer" required>
             <label for="user-answer"></label>
             <button type="submit" id="send-answer">Submit Answer</button>
         </div>`;
@@ -100,6 +107,12 @@ export class FlashCard {
         const operator = this.getOperator();
         const cardNumName = this.getCardNum(this.cardNum);
         let buttonId = "next-card";
+        let finalBtn = "Next Problem"
+
+        if (this.cardNum == 10){
+            buttonId = "finish-set";
+            finalBtn = "Finish!";
+        }
 
         const cardBackContent = `
         <div class="card-side back problem">
@@ -107,12 +120,39 @@ export class FlashCard {
             <span id="problem">${numOne} ${operator} ${numTwo} = </span>
             <span id="user-answer">Your Answer:</span>
             <span id="correct-answer">Correct Answer: ${this.answer}</span>
-            <button type="submit" id="${buttonId}">Next Problem</button>
+            <button type="submit" id="${buttonId}">${finalBtn}</button>
         </div>`;
 
         cardBack.outerHTML = cardBackContent;
-        
-        this.addNextCardListener();
+        if (this.cardNum == 10){
+            this.addFinishListener();
+        } else {
+            this.addNextCardListener();
+        }
+    }
+
+    addFinishListener() {
+        const endButton = document.querySelector("#finish-set");
+        endButton.addEventListener("click", () => {
+            this.endSet();
+        })
+    }
+
+    endSet() {
+        const location = document.querySelector(".card-container");
+        const flashCard = document.querySelector(".flash-card")
+        const finishedCard = `
+        <section class="finished-options">
+        <h2>Great Job!</h2>
+        <div>
+        <p>You Scored: <span id="score">${this.score}/ 10</span></p>
+          <button id="reset">Try Again!</button>
+          <button id="go-home">Go Home</button>
+        </div>
+        </section>`;
+
+        renderWithTemplate(finishedCard, location, "beforeBegin");
+        this.addFinalListeners();
     }
 
     // correct flashcard
@@ -164,8 +204,10 @@ export class FlashCard {
         answerPlacement.innerText = correctAnswer;
         const userAnswer = this.getInputValue();
         let correction = "";
-        if(userAnswer == answer) {
+        if(userAnswer.toLowerCase() == answer.toLowerCase()) {
             correction = true;
+            this.score += 1;
+            this.scoreUpdate.updateScore(this.score);
         } else {
             correction = false;
         }
@@ -184,6 +226,37 @@ export class FlashCard {
 
     getInputValue() {
         return document.querySelector("input").value;
+    }
+
+    addFinalListeners() {
+        const tryAgain = document.querySelector("#reset");
+        const goHome = document.querySelector("#go-home");
+        const score = new Score();
+
+        tryAgain.addEventListener("click", () => {
+            this.score = 0;
+            score.updateScore(this.score);
+            this.reset();
+        })
+
+        goHome.addEventListener("click", () => {
+            window.location.href = "../index.html";
+        })
+    }
+
+    async reset() {
+        const userOptions = getLocalStorage("user-options")
+        const userDifficulty = userOptions["difficulty"]
+        const userMathType = userOptions["mathType"]
+        const userMode = userOptions["practice-mode"]
+    
+        addLoader();
+
+        const newFlashCards = new FlashCardSet(userMathType, userDifficulty, userMode);    
+
+        await newFlashCards.createCardSet();
+        location.reload();
+
     }
 
 }

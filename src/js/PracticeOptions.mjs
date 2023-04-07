@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage, renderWithTemplate } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, renderWithTemplate, addLoader } from "./utils.mjs";
 import { FlashCardSet } from "./FlashCardSet.mjs";
 
 function formDataToJSON(formElement) {
@@ -23,40 +23,34 @@ export class PracticeInfo {
     const formPlacement = document.querySelector(".display-practice");
     const formTemplate =
       `<section class="practice-options">
-        <h2>Practice ${mathType}</h2>
         <span class="close-options">X</span>
 
-        <form>
+        <h2>Practice ${mathType}</h2>
+
+        <form class="select-user-options">
           <h3>Select Your Difficulty</h3>
-          <input type="radio" name="difficulty" id="beginner" class="difficulty" value="1" required>
-          <label for="difficulty" class="difficulty-beginner"><a>Beginner</a></label>
-      
-          <input type="radio" name="difficulty" id="easy" class="difficulty" value="2" required>
-          <label for="difficulty" class="difficulty-easy"><a>Easy</a></label>
+          <div class="user-options-input">
+            <input type="radio" name="difficulty" id="beginner" class="difficulty" value="1" required>
+            <label for="beginner" class="options-label difficulty-beginner">Beginner</label>
 
-          <input type="radio" name="difficulty" id="medium" class="difficulty" value="3" required>
-          <label for="difficulty" class="difficulty-medium"><a>Medium</a></label>
+            <input type="radio" name="difficulty" id="easy" class="difficulty" value="2" required>
+            <label for="easy" class="options-label difficulty-easy">Easy</label>
 
-          <input type="radio" name="difficulty" id="hard" class="difficulty" value="4" required>
-          <label for="difficulty" class="difficulty-hard"><a>Hard</a></label>
+            <input type="radio" name="difficulty" id="medium" class="difficulty" value="3" required>
+            <label for="medium" class="options-label difficulty-medium">Medium</label>
 
-          <input type="radio" name="difficulty" id="expert" class="difficulty" value="5" required>
-          <label for="difficulty" class="difficulty-expert"><a>Expert</a></label>
-      
-          <input type="radio" name="difficulty" id="master" class="difficulty" value="6" required>
-          <label for="difficulty" class="difficulty-master"><a>Master</a></label>
-      
-          <input type="radio" name="difficulty" id="impossible" class="difficulty" value="7" required>
-          <label for="difficulty" class="difficulty-impossible"><a>Impossible</a></label> 
-        </div>
-        <div>
-          <input type="radio" name="practice-mode" id="practice-mode" class="mode" value="practice" required>
-          <label for="practice-mode" class="practice-mode"><a>Practice Mode</a></label>
-  
-          <input type="radio" name="practice-mode" id="quiz-mode" class="mode" value="quiz" required>
-          <label for="quiz-mode" class="quiz-mode"><a>Quiz Mode</a></label>      
-        </div>   
-        <div>
+            <input type="radio" name="difficulty" id="hard" class="difficulty" value="4" required>
+            <label for="hard" class="options-label difficulty-hard">Hard</label>
+
+            <input type="radio" name="difficulty" id="expert" class="difficulty" value="5" required>
+            <label for="expert" class="options-label difficulty-expert">Expert</label>
+
+            <input type="radio" name="difficulty" id="master" class="difficulty" value="6" required>
+            <label for="master" class="options-label difficulty-master">Master</label>
+
+            <input type="radio" name="difficulty" id="impossible" class="difficulty" value="7" required>
+            <label for="impossible" class="options-label difficulty-impossible">Impossible</label> 
+          </div>
           <button id="optionsSubmit" type="submit">Lets Go!!!</button>
         </form>
       </section>`;
@@ -104,6 +98,8 @@ export class PracticeInfo {
   }
 
   async createCardSet() {
+    addLoader();
+
     const userOptions = getLocalStorage("user-options")
     const userDifficulty = userOptions["difficulty"]
     const userMathType = userOptions["mathType"]
